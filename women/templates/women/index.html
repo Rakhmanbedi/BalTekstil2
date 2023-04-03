@@ -87,14 +87,35 @@
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title">New Products</h3>
+							{% if page_obj.has_other_pages %}
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+                                    {% if page_obj.has_previous %}
+									<li class="page-item">
+									  <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									  </a>
+									</li>
+									{% endif %}
+									{% for p in paginator.page_range %}
+									{% if page_obj.number == p %}
+									<li class="page-num page-num-selected"></li>
+                                    {% else %}
+									<li class="page-num">
+										<a href="?page={{ p }}">{{ p }}</a>
+									</li>
+									{% endif %}
+									{% endfor %}
+									{% if page_obj.has_next %}
+									<li class="page-item">
+									  <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									  </a>
+									</li>
+									{% endif %}
 								</ul>
 							</div>
+							{% endif %}
 						</div>
 					</div>
 					<!-- /section title -->

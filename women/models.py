@@ -1,5 +1,7 @@
+
 from django.db import models
 from django.urls import reverse
+
 
 class Women(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок")
@@ -23,7 +25,7 @@ class Women(models.Model):
     class Meta:
         verbose_name = 'Известные женщины'
         verbose_name_plural = 'Известные женщины'
-        #ordering = ['-time_create', 'title']
+        ordering = ['id']
 
 
 class Category(models.Model):
@@ -40,3 +42,5 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ['id']
+
+

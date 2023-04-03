@@ -133,7 +133,11 @@
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+						{% if request.user.is_authenticated %}
+						<li>{{user.username}} | <a href="{% url 'logout'%}">Logout</a></li>
+						{% else %}
 					    <li><a href="{% url 'login'%}"><i class="fa fa-sign-out last"></i>Sign in</a></li>
+						{% endif %}
 					</ul>
 				</div>
 			</div>
