@@ -209,7 +209,9 @@
 										<div class="product">
 											<a href="{{ p.get_absolute_url }}">
 											<div class="product-img">
-												<img  src="{{p.photo.url}}">
+												{% if p.photo %}
+													<img  src="{{p.photo.url}}">
+												{% endif %}
 											</div>
 											</a>
 											<div class="product-body">
