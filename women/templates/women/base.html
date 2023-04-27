@@ -127,16 +127,16 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+						<li><a href="#"><i class="fa fa-phone"></i> 87715368237</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> {{user.email}}</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i>Жандосова 55</a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-						{% if request.user.is_authenticated %}
-						<li>{{user.username}} | <a href="{% url 'logout'%}">Logout</a></li>
+						<li>{% if request.user.is_authenticated %}</li>
+
+						<li>{{user.username}} | <a href="{% url 'logouts'%}">Logout</a></li>
 						{% else %}
-					    <li><a href="{% url 'login'%}"><i class="fa fa-sign-out last"></i>Sign in</a></li>
+					    <li><a href="{% url 'logins'%}"><i class="fa fa-sign-out last"></i>Sign in</a></li>
 						{% endif %}
 					</ul>
 				</div>
@@ -152,8 +152,8 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="">
-								<a href="#" class="">
-									<h1>BalTekstil.</h1>
+								<a href="/" class="">
+									<h1>BalTekstil</h1>
 								</a>
 							</div>
 						</div>
@@ -358,7 +358,6 @@
 								</ul>
 							</div>
 						</div>
-
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Categories</h3>
